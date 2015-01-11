@@ -1,0 +1,34 @@
+2015/01/11 03:52:45 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'tbl_project' already exists. The SQL statement executed was: CREATE TABLE `tbl_project` (
+	`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`name` varchar(255) NOT NULL,
+	`description` text NOT NULL,
+	`create_time` datetime DEFAULT NULL,
+	`create_user_id` int(11) DEFAULT NULL,
+	`update_time` datetime DEFAULT NULL,
+	`update_user_id` int(11) DEFAULT NULL
+) ENGINE=InnoDB.
+2015/01/11 03:52:45 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'tbl_project' already exists. The SQL statement executed was: CREATE TABLE `tbl_project` (
+	`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`name` varchar(255) NOT NULL,
+	`description` text NOT NULL,
+	`create_time` datetime DEFAULT NULL,
+	`create_user_id` int(11) DEFAULT NULL,
+	`update_time` datetime DEFAULT NULL,
+	`update_user_id` int(11) DEFAULT NULL
+) ENGINE=InnoDB' in E:\xampp\htdocs\yii\framework\db\CDbCommand.php:354
+Stack trace:
+#0 E:\xampp\htdocs\yii\framework\db\CDbCommand.php(1251): CDbCommand->execute()
+#1 E:\xampp\htdocs\yii\framework\db\CDbMigration.php(229): CDbCommand->createTable('tbl_project', Array, 'ENGINE=InnoDB')
+#2 E:\xampp\htdocs\trackstar\protected\migrations\m150111_024826_create_project_table.php(12): CDbMigration->createTable('tbl_project', Array, 'ENGINE=InnoDB')
+#3 E:\xampp\htdocs\yii\framework\cli\commands\MigrateCommand.php(386): m150111_024826_create_project_table->up()
+#4 E:\xampp\htdocs\yii\framework\cli\commands\MigrateCommand.php(110): MigrateCommand->migrateUp('m150111_024826_...')
+#5 [internal function]: MigrateCommand->actionUp(Array)
+#6 E:\xampp\htdocs\yii\framework\console\CConsoleCommand.php(173): ReflectionMethod->invokeArgs(Object(MigrateCommand), Array)
+#7 E:\xampp\htdocs\yii\framework\console\CConsoleCommandRunner.php(68): CConsoleCommand->run(Array)
+#8 E:\xampp\htdocs\yii\framework\console\CConsoleApplication.php(92): CConsoleCommandRunner->run(Array)
+#9 E:\xampp\htdocs\yii\framework\base\CApplication.php(162): CConsoleApplication->processRequest()
+#10 E:\xampp\htdocs\yii\framework\yiic.php(34): CApplication->run()
+#11 E:\xampp\htdocs\trackstar\protected\yiic.php(7): require_once('E:\\xampp\\htdocs...')
+#12 {main}
+---
+2015/01/11 03:53:45 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'trackstar.tbl_migration' doesn't exist. The SQL statement executed was: SHOW COLUMNS FROM `tbl_migration`.
