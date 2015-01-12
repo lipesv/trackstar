@@ -2,15 +2,6 @@
 class m150112_173403_create_issue_user_and_assignment_tables extends CDbMigration {
 	
 	public function up() {
-	}
-	
-	public function down() {
-		echo "m150112_173403_create_issue_user_and_assignment_tables does not support migration down.\n";
-		return false;
-	}
-	
-	// Use safeUp/safeDown to do migration with transaction
-	public function safeUp() {
 		
 		// create the issue table
 		$this->createTable ( 'tbl_issue', array (
@@ -67,14 +58,20 @@ class m150112_173403_create_issue_user_and_assignment_tables extends CDbMigratio
 		$this->addForeignKey ( "fk_user_project", "tbl_project_user_assignment", "user_id", "tbl_user", "id", "CASCADE", "RESTRICT" );
 	}
 	
-	public function safeDown() {
-		
+	public function down() {
 		$this->truncateTable ( 'tbl_project_user_assignment' );
 		$this->truncateTable ( 'tbl_issue' );
 		$this->truncateTable ( 'tbl_user' );
 		$this->dropTable ( 'tbl_project_user_assignment' );
 		$this->dropTable ( 'tbl_issue' );
 		$this->dropTable ( 'tbl_user' );
-		
 	}
+	
+	// Use safeUp/safeDown to do migration with transaction
+	/*
+	 * public function safeUp() {
+	}
+	public function safeDown() {
+	}
+	*/
 }
