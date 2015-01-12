@@ -2,5 +2,5 @@
 <buildpath>
 	<buildpathentry kind="con" path="org.eclipse.php.core.LANGUAGE"/>
 	<buildpathentry kind="src" path=""/>
-	<buildpathentry external="true" kind="lib" path="E:/xampp/htdocs/yii/framework"/>
+	<buildpathentry external="true" kind="lib" path="C:/Users/fvieira/Desenvolvimento/xampp/htdocs/yii/framework"/>
 </buildpath>
