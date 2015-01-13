@@ -146,6 +146,7 @@ class Issue extends CActiveRecord {
 	 *         based on the search/filter conditions.
 	 */
 	public function search() {
+		
 		// @todo Please modify the following code to remove attributes that should not be searched.
 		$criteria = new CDbCriteria ();
 		
@@ -161,6 +162,15 @@ class Issue extends CActiveRecord {
 		$criteria->compare ( 'create_user_id', $this->create_user_id );
 		$criteria->compare ( 'update_time', $this->update_time, true );
 		$criteria->compare ( 'update_user_id', $this->update_user_id );
+		
+		$criteria->addcondition ( 'project_id= :projectID' )->params [':projectID'] = $this->project_id;
+		
+// 		$criteria->condition = 'project_id = :projectID';
+		
+// 		$criteria->params = array (
+// 				':projectID',
+// 				$this->project_id 
+// 		);
 		
 		return new CActiveDataProvider ( $this, array (
 				'criteria' => $criteria 
