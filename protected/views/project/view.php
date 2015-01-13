@@ -19,7 +19,9 @@ $this->menu=array(
 
 <h1>View Project #<?php echo $model->id; ?></h1>
 
-<?php $this->widget('zii.widgets.CDetailView', array(
+<?php 
+
+$this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,
 	'attributes'=>array(
 		'id',
@@ -30,4 +32,19 @@ $this->menu=array(
 		'update_time',
 		'update_user_id',
 	),
-)); ?>
+)); 
+
+?>
+
+
+<br />
+<h1>Project Issues</h1>
+
+<?php 
+
+$this->widget ( 'zii.widgets.CListView', array (
+		'dataProvider' => $issueDataProvider,
+		'itemView' => '/issue/_view' 
+) );
+
+?>
