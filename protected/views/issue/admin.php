@@ -1,18 +1,31 @@
 <?php
 /* @var $this IssueController */
 /* @var $model Issue */
-
-$this->breadcrumbs=array(
-	'Issues'=>array('index'),
-	'Manage',
+$this->breadcrumbs = array (
+		'Issues' => array (
+				'index' 
+		),
+		'Manage' 
 );
 
-$this->menu=array(
-	array('label'=>'List Issue', 'url'=>array('index', 'pid'=>$model->project->id)),
-	array('label'=>'Create Issue', 'url'=>array('create', 'pid'=>$model->project->id)),
+$this->menu = array (
+		array (
+				'label' => 'List Issue',
+				'url' => array (
+						'index',
+						'pid' => $model->project->id 
+				) 
+		),
+		array (
+				'label' => 'Create Issue',
+				'url' => array (
+						'create',
+						'pid' => $model->project->id 
+				) 
+		) 
 );
 
-Yii::app()->clientScript->registerScript('search', "
+Yii::app ()->clientScript->registerScript ( 'search', "
 $('.search-button').click(function(){
 	$('.search-form').toggle();
 	return false;
@@ -23,7 +36,7 @@ $('.search-form form').submit(function(){
 	});
 	return false;
 });
-");
+" );
 ?>
 
 <h1>Manage Issues</h1>
@@ -37,9 +50,12 @@ $('.search-form form').submit(function(){
 
 <?php echo CHtml::link('Advanced Search','#',array('class'=>'search-button')); ?>
 <div class="search-form" style="display: none">
-<?php $this->renderPartial('_search',array(
-	'model'=>$model,
-)); ?>
+<?php
+
+$this->renderPartial ( '_search', array (
+		'model' => $model 
+) );
+?>
 </div>
 <!-- search-form -->
 
@@ -56,23 +72,19 @@ $this->widget ( 'zii.widgets.grid.CGridView', array (
 				'project_id',
 				'type_id',
 				'status_id',
-				array (
-						'name' => 'owner_id',
-						'value' => isset ( $model->owner ) ? CHtml::encode ( $model->owner->username ) : "unknown"
-				),
-				array (
-						'name' => 'requester_id',
-						'value' => isset ( $model->requester ) ? CHtml::encode ( $model->requester->username ) : "unknown" 
-				)
-// 				'owner_id',
-// 				'requester_id',
-// 				'create_time',
-// 				'create_user_id',
-// 				'update_time',
-// 				'update_user_id',
+				'owner_id',
+// 				array (
+// 						'name' => 'owner_id',
+// 						'value' => $model->owner 
+// 				),
+				// array (
+				// 'name' => 'requester',
+				// 'value' => $model->requester->username
+				// ),
 				
 				array (
 						'class' => 'CButtonColumn' 
-				),
-	),
-)); ?>
+				) 
+		) 
+) );
+?>
