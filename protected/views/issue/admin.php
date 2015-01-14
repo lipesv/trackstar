@@ -66,17 +66,19 @@ $this->widget ( 'zii.widgets.grid.CGridView', array (
 		'dataProvider' => $model->search (),
 		'filter' => $model,
 		'columns' => array (
-				'id',
+				// 'id',
 				'name',
 				'description',
 				'project_id',
 				'type_id',
 				'status_id',
 				'owner_id',
-// 				array (
-// 						'name' => 'owner_id',
-// 						'value' => $model->owner 
-// 				),
+				'requester_id',
+				// 'owner',
+				// array (
+				// 'name' => 'owner_id',
+				// 'value' => $model->owner
+				// ),
 				// array (
 				// 'name' => 'requester',
 				// 'value' => $model->requester->username
@@ -87,4 +89,5 @@ $this->widget ( 'zii.widgets.grid.CGridView', array (
 				) 
 		) 
 ) );
+
 ?>
