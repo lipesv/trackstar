@@ -75,8 +75,9 @@ abstract class Enum
     }
 
     // Caching of values
-    public $_allValues;
-    public $_dropDownValues;
+    private $_allValues;
+    private $_dropDownValues;
+    
     // Constants for translation
     static private $I18N_CATEGORY = 'enums';
 
@@ -130,7 +131,7 @@ abstract class Enum
      * Returns an array with the enum values (usefull for model rules validation)
      * @return array
      */
-    protected function _getValidValues()
+    public function _getValidValues()
     {
         return $this->getInternalValuesByReflection();
     }
@@ -140,7 +141,7 @@ abstract class Enum
      * and texts as translated values
      * @return array
      */
-    protected function _getDataForDropDown()
+    public function _getDataForDropDown()
     {
         if( !isset( $this->_dropDownValues ) )
         {
@@ -153,7 +154,7 @@ abstract class Enum
         return $this->_dropDownValues;
     }
 
-    protected function _getDataForRadioButtonList()
+    public function _getDataForRadioButtonList()
     {
         return $this->_getDataForDropDown();
     }

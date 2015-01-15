@@ -24,14 +24,6 @@
  */
 class Issue extends CActiveRecord {
 	
-	const TYPE_BUG = 0;
-	const TYPE_FEATURE = 1;
-	const TYPE_TASK = 2;
-	
-	const STATUS_Not_Yet_Started = 0;
-	const STATUS_Started = 1;
-	const STATUS_Finished = 2;
-	
 	/**
 	 *
 	 * @return string the associated database table name
@@ -205,11 +197,15 @@ class Issue extends CActiveRecord {
 	 *        
 	 */
 	public function getTypeOptions() {
-		return array (
-				self::TYPE_BUG => 'Bug',
-				self::TYPE_FEATURE => 'Feature',
-				self::TYPE_TASK => 'Task' 
-		);
+		
+		$issueTypes = new IssueType ();
+		return $issueTypes->_dropDownValues ();
+		
+		// return array (
+		// self::TYPE_BUG => 'Bug',
+		// self::TYPE_FEATURE => 'Feature',
+		// self::TYPE_TASK => 'Task'
+		// );
 	}
 	
 	/**
@@ -219,11 +215,15 @@ class Issue extends CActiveRecord {
 	 *        
 	 */
 	public function getAllowedTypeRange() {
-		return array (
-				self::TYPE_BUG,
-				self::TYPE_FEATURE,
-				self::TYPE_TASK 
-		);
+		
+		// return array (
+		// self::TYPE_BUG,
+		// self::TYPE_FEATURE,
+		// self::TYPE_TASK
+		// );
+		
+		$issueTypes = new IssueType ();
+		return $issueTypes->_getValidValues ();
 	}
 	
 	/**
@@ -233,11 +233,15 @@ class Issue extends CActiveRecord {
 	 *        
 	 */
 	public function getStatusOptions() {
-		return array (
-				self::STATUS_Not_Yet_Started => 'Not Yet Started',
-				self::STATUS_Started => 'Started',
-				self::STATUS_Finished => 'Finished' 
-		);
+		
+		$issueStatus = new IssueType ();
+		return $issueStatus->_dropDownValues ();
+		
+		// return array (
+		// self::STATUS_Not_Yet_Started => 'Not Yet Started',
+		// self::STATUS_Started => 'Started',
+		// self::STATUS_Finished => 'Finished'
+		// );
 	}
 	
 	/**
@@ -247,11 +251,15 @@ class Issue extends CActiveRecord {
 	 *        
 	 */
 	public function getAllowedStatusRange() {
-		return array (
-				self::STATUS_Not_Yet_Started,
-				self::STATUS_Started,
-				self::STATUS_Finished 
-		);
+		
+		// return array (
+		// self::STATUS_Not_Yet_Started,
+		// self::STATUS_Started,
+		// self::STATUS_Finished
+		// );
+		
+		$issueStatus = new IssueStatus();
+		return $issueStatus->_getValidValues();
 	}
 	
 	/**
