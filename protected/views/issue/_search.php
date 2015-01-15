@@ -6,10 +6,13 @@
 
 <div class="wide form">
 
-<?php $form=$this->beginWidget('CActiveForm', array(
-	'action'=>Yii::app()->createUrl($this->route),
-	'method'=>'get',
-)); ?>
+<?php
+
+$form = $this->beginWidget ( 'CActiveForm', array (
+		'action' => Yii::app ()->createUrl ( $this->route ),
+		'method' => 'get' 
+) );
+?>
 
 	<div class="row">
 		<?php //echo $form->label($model,'id'); ?>
@@ -27,28 +30,29 @@
 	</div>
 
 	<div class="row">
-		<?php //echo $form->label($model,'project_id'); ?>
-		<?php //echo $form->textField($model,'project_id'); ?>
+		<?php echo $form->label($model,'project'); ?>
+		<?php echo $form->textField($model,'project'); ?>
 	</div>
 
 	<div class="row">
-		<?php //echo $form->label($model,'type_id'); ?>
-		<?php //echo $form->textField($model,'type_id'); ?>
+		<?php echo $form->label($model,'type'); ?>
+		<?php echo $form->textField($model,'type'); ?>
 	</div>
 
 	<div class="row">
-		<?php //echo $form->label($model,'status_id'); ?>
-		<?php //echo $form->textField($model,'status_id'); ?>
+		<?php echo $form->label($model,'status'); ?>
+		<?php echo $form->textField($model,'status'); ?>
 	</div>
 
 	<div class="row">
-		<?php //echo $form->label($model,'owner_id'); ?>
-		<?php //echo $form->textField($model,'owner_id'); ?>
+		<?php echo $form->label($model,'requester'); ?>
+		<?php echo $form->textField($model,'requester'); ?>
+		
 	</div>
 
 	<div class="row">
-		<?php //echo $form->label($model,'requester_id'); ?>
-		<?php //echo $form->textField($model,'requester_id'); ?>
+		<?php echo $form->label($model,'owner'); ?>
+		<?php echo $form->textField($model,'owner'); ?>
 	</div>
 
 	<div class="row">
@@ -77,4 +81,5 @@
 
 <?php $this->endWidget(); ?>
 
-</div><!-- search-form -->
+</div>
+<!-- search-form -->
