@@ -1801,3 +1801,5 @@ HTTP_REFERER=http://localhost:81/trackstar/index.php?r=site/login
 ---
 2015/01/15 15:34:34 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 6 Error on delete of 'C:\Users\fvieira\Desenvolvimento\xampp\tmp\#sql1104_65_4.MYD' (Errcode: 13 - Permission denied). The SQL statement executed was: SHOW FULL COLUMNS FROM `tbl_project_user_assignment`.
 in C:\Users\fvieira\Desenvolvimento\xampp\htdocs\trackstar\index.php (13)
+2015/01/15 17:12:19 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'trackstar.vw_manage_issue' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `vw_manage_issue`.
+in C:\Users\fvieira\Desenvolvimento\xampp\htdocs\trackstar\index.php (13)
