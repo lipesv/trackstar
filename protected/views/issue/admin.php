@@ -13,14 +13,14 @@ $this->menu = array (
 				'label' => 'List Issue',
 				'url' => array (
 						'index',
-						'pid' => $model->project->id 
+						'pid' => $model->id 
 				) 
 		),
 		array (
 				'label' => 'Create Issue',
 				'url' => array (
 						'create',
-						'pid' => $model->project->id 
+						'pid' => $model->id 
 				) 
 		) 
 );
@@ -66,23 +66,13 @@ $this->widget ( 'zii.widgets.grid.CGridView', array (
 		'dataProvider' => $model->search (),
 		'filter' => $model,
 		'columns' => array (
-				// 'id',
 				'name',
 				'description',
-				'project_id',
-				'type_id',
-				'status_id',
-				'owner_id',
-				'requester_id',
-				// 'owner',
-				// array (
-				// 'name' => 'owner_id',
-				// 'value' => $model->owner
-				// ),
-				// array (
-				// 'name' => 'requester',
-				// 'value' => $model->requester->username
-				// ),
+				'project',
+				'type',
+				'status',
+				'owner',
+				'requester',
 				
 				array (
 						'class' => 'CButtonColumn' 

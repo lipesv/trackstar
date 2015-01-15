@@ -8,8 +8,8 @@
  * @property string $name
  * @property string $description
  * @property string $project
- * @property integer $type
- * @property integer $status
+ * @property string $type
+ * @property string $status
  * @property string $requester
  * @property string $owner
  */
@@ -32,8 +32,10 @@ class IssueManage extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('name, project, requester, owner', 'required'),
-			array('id, type, status', 'numerical', 'integerOnly'=>true),
+			array('id', 'numerical', 'integerOnly'=>true),
 			array('name, project, requester, owner', 'length', 'max'=>255),
+			array('type', 'length', 'max'=>7),
+			array('status', 'length', 'max'=>15),
 			array('description', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
@@ -91,8 +93,8 @@ class IssueManage extends CActiveRecord
 		$criteria->compare('name',$this->name,true);
 		$criteria->compare('description',$this->description,true);
 		$criteria->compare('project',$this->project,true);
-		$criteria->compare('type',$this->type);
-		$criteria->compare('status',$this->status);
+		$criteria->compare('type',$this->type,true);
+		$criteria->compare('status',$this->status,true);
 		$criteria->compare('requester',$this->requester,true);
 		$criteria->compare('owner',$this->owner,true);
 

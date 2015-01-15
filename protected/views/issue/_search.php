@@ -12,8 +12,8 @@
 )); ?>
 
 	<div class="row">
-		<?php echo $form->label($model,'id'); ?>
-		<?php echo $form->textField($model,'id'); ?>
+		<?php //echo $form->label($model,'id'); ?>
+		<?php //echo $form->textField($model,'id'); ?>
 	</div>
 
 	<div class="row">
@@ -27,48 +27,48 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'project_id'); ?>
-		<?php echo $form->textField($model,'project_id'); ?>
+		<?php //echo $form->label($model,'project_id'); ?>
+		<?php //echo $form->textField($model,'project_id'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'type_id'); ?>
-		<?php echo $form->textField($model,'type_id'); ?>
+		<?php //echo $form->label($model,'type_id'); ?>
+		<?php //echo $form->textField($model,'type_id'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'status_id'); ?>
-		<?php echo $form->textField($model,'status_id'); ?>
+		<?php //echo $form->label($model,'status_id'); ?>
+		<?php //echo $form->textField($model,'status_id'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'owner_id'); ?>
-		<?php echo $form->textField($model,'owner_id'); ?>
+		<?php //echo $form->label($model,'owner_id'); ?>
+		<?php //echo $form->textField($model,'owner_id'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'requester_id'); ?>
-		<?php echo $form->textField($model,'requester_id'); ?>
+		<?php //echo $form->label($model,'requester_id'); ?>
+		<?php //echo $form->textField($model,'requester_id'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'create_time'); ?>
-		<?php echo $form->textField($model,'create_time'); ?>
+		<?php //echo $form->label($model,'create_time'); ?>
+		<?php //echo $form->textField($model,'create_time'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'create_user_id'); ?>
-		<?php echo $form->textField($model,'create_user_id'); ?>
+		<?php //echo $form->label($model,'create_user_id'); ?>
+		<?php //echo $form->textField($model,'create_user_id'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'update_time'); ?>
-		<?php echo $form->textField($model,'update_time'); ?>
+		<?php //echo $form->label($model,'update_time'); ?>
+		<?php //echo $form->textField($model,'update_time'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'update_user_id'); ?>
-		<?php echo $form->textField($model,'update_user_id'); ?>
+		<?php //echo $form->label($model,'update_user_id'); ?>
+		<?php //echo $form->textField($model,'update_user_id'); ?>
 	</div>
 
 	<div class="row buttons">
