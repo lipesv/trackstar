@@ -12,13 +12,14 @@ return array (
 		// preloading 'log' component
 		'preload' => array (
 				'log',
-				'enum' 
+				'enum'
 		),
 		
 		// autoloading model and component classes
 		'import' => array (
 				'application.models.*',
-				'application.components.*'  
+				'application.components.*',
+				'application.extensions.*'  
 		),
 		
 		'modules' => array (
@@ -33,8 +34,7 @@ return array (
 								'::1' 
 						) 
 				) 
-		)
-		,
+		),
 		
 		// application components
 		'components' => array (
@@ -77,19 +77,16 @@ return array (
 										'class' => 'CFileLogRoute',
 										'levels' => 'error, warning' 
 								) 
-						)
-						// uncomment the following to show log messages on web pages
-						/*
-						 * array(
-						 * 'class'=>'CWebLogRoute',
-						 * ),
-						 */
-						 
+						) 
 				),
-				'enum'=>array(
-					'class' => 'extensions.enums.Enum'
-				) 
+				'enum'=>array('class' => 'ext.')
 		),
+		// uncomment the following to show log messages on web pages
+		/*
+		 * array(
+		 * 'class'=>'CWebLogRoute',
+		 * ),
+		 */
 		
 		// application-level parameters that can be accessed
 		// using Yii::app()->params['paramName']
