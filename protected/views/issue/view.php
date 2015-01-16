@@ -31,10 +31,10 @@ $this->widget ( 'zii.widgets.CDetailView', array (
 						'name' => 'type_id',
 						'value' => CHtml::encode ( $model->getTypeText () ) 
 				),
-				array (
-						'name' => 'status_id',
-						'value' => CHtml::encode ( $model->getStatusText () ) 
-				),
+// 				array (
+// 						'name' => 'status_id',
+// 						'value' => CHtml::encode ( $model->getStatusText () ) 
+// 				),
 				array (
 						'name' => 'owner_id',
 						'value' => isset ( $model->owner ) ? CHtml::encode ( $model->owner->username ) : "unknown" 

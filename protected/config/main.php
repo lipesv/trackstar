@@ -12,9 +12,7 @@ return array (
 		// preloading 'log' component
 		'preload' => array (
 				'log' 
-		)
-		// 'enum'
-		,
+		),
 		
 		// autoloading model and component classes
 		'import' => array (
@@ -80,11 +78,7 @@ return array (
 								) 
 						) 
 				) 
-		)
-		// 'enum' => array (
-		// 'class' => 'ext.enum.Enum'
-		// )
-		,
+		),
 		// uncomment the following to show log messages on web pages
 		/*
 		 * array(
