@@ -68,12 +68,12 @@ class Issue extends CActiveRecord {
 				array (
 						'type_id',
 						'in',
-						'range' => self::getAllowedTypeRange () 
+						'range' => IssueType::_getValidValues() 
 				),
 				array (
 						'status_id',
 						'in',
-						'range' => self::getAllowedStatusRange () 
+						'range' => IssueStatus::_getValidValues() 
 				) 
 		);
 	}
@@ -190,84 +190,81 @@ class Issue extends CActiveRecord {
 		return parent::model ( $className );
 	}
 	
-	/**
-	 * Retrieves a list of issue types
-	 *
-	 * @return array an array of available issue types.
-	 *        
-	 */
-	public function getTypeOptions() {
+// 	/**
+// 	 * Retrieves a list of issue types
+// 	 *
+// 	 * @return array an array of available issue types.
+// 	 *        
+// 	 */
+// 	public function getTypeOptions() {
 		
-		$issueTypes = new IssueType ();
-		return $issueTypes->_dropDownValues ();
 		
-		// return array (
-		// self::TYPE_BUG => 'Bug',
-		// self::TYPE_FEATURE => 'Feature',
-		// self::TYPE_TASK => 'Task'
-		// );
-	}
+// 		return IssueType::_getDataForDropDown();
+		
+// 		// return array (
+// 		// self::TYPE_BUG => 'Bug',
+// 		// self::TYPE_FEATURE => 'Feature',
+// 		// self::TYPE_TASK => 'Task'
+// 		// );
+// 	}
 	
-	/**
-	 * Retrieves a list of allowed types
-	 *
-	 * @return array an array of allowed types.
-	 *        
-	 */
-	public function getAllowedTypeRange() {
+// 	/**
+// 	 * Retrieves a list of allowed types
+// 	 *
+// 	 * @return array an array of allowed types.
+// 	 *        
+// 	 */
+// 	public function getAllowedTypeRange() {
 		
-		// return array (
-		// self::TYPE_BUG,
-		// self::TYPE_FEATURE,
-		// self::TYPE_TASK
-		// );
+// 		// return array (
+// 		// self::TYPE_BUG,
+// 		// self::TYPE_FEATURE,
+// 		// self::TYPE_TASK
+// 		// );
 		
-		$issueTypes = new IssueType ();
-		return $issueTypes->_getValidValues ();
-	}
+// 		return IssueType::_getValidValues();
+// 	}
 	
-	/**
-	 * Retrieves a list of issue status
-	 *
-	 * @return array an array of available issue status.
-	 *        
-	 */
-	public function getStatusOptions() {
+// 	/**
+// 	 * Retrieves a list of issue status
+// 	 *
+// 	 * @return array an array of available issue status.
+// 	 *        
+// 	 */
+// 	public function getStatusOptions() {
 		
-		$issueStatus = new IssueType ();
-		return $issueStatus->_dropDownValues ();
+// 		return IssueStatus::_getDataForDropDown();
 		
-		// return array (
-		// self::STATUS_Not_Yet_Started => 'Not Yet Started',
-		// self::STATUS_Started => 'Started',
-		// self::STATUS_Finished => 'Finished'
-		// );
-	}
+// 		// return array (
+// 		// self::STATUS_Not_Yet_Started => 'Not Yet Started',
+// 		// self::STATUS_Started => 'Started',
+// 		// self::STATUS_Finished => 'Finished'
+// 		// );
+// 	}
 	
-	/**
-	 * Retrieves a list of allowed status
-	 *
-	 * @return array an array of allowed status.
-	 *        
-	 */
-	public function getAllowedStatusRange() {
+// 	/**
+// 	 * Retrieves a list of allowed status
+// 	 *
+// 	 * @return array an array of allowed status.
+// 	 *        
+// 	 */
+// 	public function getAllowedStatusRange() {
 		
-		// return array (
-		// self::STATUS_Not_Yet_Started,
-		// self::STATUS_Started,
-		// self::STATUS_Finished
-		// );
+// 		// return array (
+// 		// self::STATUS_Not_Yet_Started,
+// 		// self::STATUS_Started,
+// 		// self::STATUS_Finished
+// 		// );
 		
-		$issueStatus = new IssueStatus();
-		return $issueStatus->_getValidValues();
-	}
+// 		return IssueStatus::_getValidValues();
+// 	}
 	
 	/**
 	 *
 	 * @return string the status text display for the current issue
 	 */
 	public function getStatusText() {
-		$statusOptions = $this->statusOptions;
+		$statusOptions = IssueStatus::_getDataForDropDown();
 		return isset ( $statusOptions [$this->status_id] ) ? $statusOptions [$this->status_id] : "unknown status ({$this->status_id})";
 	}
 	
@@ -276,7 +273,7 @@ class Issue extends CActiveRecord {
 	 * @return string the type text display for the current issue
 	 */
 	public function getTypeText() {
-		$typeOptions = $this->typeOptions;
+		$typeOptions = IssueType::_getDataForDropDown();
 		return isset ( $typeOptions [$this->type_id] ) ? $typeOptions [$this->type_id] : "unknown type ({$this->type_id})";
 	}
 }

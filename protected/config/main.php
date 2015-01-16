@@ -12,13 +12,13 @@ return array (
 		// preloading 'log' component
 		'preload' => array (
 				'log',
-// 				'enums' 
+				'enum' 
 		),
 		
 		// autoloading model and component classes
 		'import' => array (
 				'application.models.*',
-				'application.components.*' 
+				'application.components.*'  
 		),
 		
 		'modules' => array (
@@ -86,9 +86,9 @@ return array (
 						 */
 						 
 				),
-// 				'enums'=>array(
-// 						'class' => 'Enum'
-// 				) 
+				'enum'=>array(
+					'class' => 'extensions.enums.Enum'
+				) 
 		),
 		
 		// application-level parameters that can be accessed

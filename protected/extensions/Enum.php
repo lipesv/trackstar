@@ -131,7 +131,7 @@ abstract class Enum
      * Returns an array with the enum values (usefull for model rules validation)
      * @return array
      */
-    public function _getValidValues()
+    public static function _getValidValues()
     {
         return $this->getInternalValuesByReflection();
     }
@@ -141,7 +141,7 @@ abstract class Enum
      * and texts as translated values
      * @return array
      */
-    public function _getDataForDropDown()
+    public static function _getDataForDropDown()
     {
         if( !isset( $this->_dropDownValues ) )
         {
@@ -154,7 +154,7 @@ abstract class Enum
         return $this->_dropDownValues;
     }
 
-    public function _getDataForRadioButtonList()
+    public static function _getDataForRadioButtonList()
     {
         return $this->_getDataForDropDown();
     }

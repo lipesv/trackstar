@@ -96,6 +96,7 @@ class ProjectController extends Controller {
 	 * If creation is successful, the browser will be redirected to the 'view' page.
 	 */
 	public function actionCreate() {
+		
 		$model = new Project ();
 		
 		// Uncomment the following line if AJAX validation is needed
