@@ -79,7 +79,7 @@ return array (
 								) 
 						) 
 				),
-				'enum'=>array('class' => 'ext.')
+				'enum'=>array('class' => 'ext.enum.Enum')
 		),
 		// uncomment the following to show log messages on web pages
 		/*
