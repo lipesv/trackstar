@@ -1,4 +1,5 @@
 <?php
+
 class IssueController extends Controller {
 	
 	/**
@@ -81,9 +82,11 @@ class IssueController extends Controller {
 	 *        	the ID of the model to be displayed
 	 */
 	public function actionView($id) {
+		
 		$this->render ( 'view', array (
 				'model' => $this->loadModel ( $id ) 
 		) );
+		
 	}
 	
 	/**
@@ -91,7 +94,6 @@ class IssueController extends Controller {
 	 * If creation is successful, the browser will be redirected to the 'view' page.
 	 */
 	public function actionCreate() {
-		
 		$model = new Issue ();
 		$model->project_id = $this->_project->id;
 		
@@ -172,7 +174,7 @@ class IssueController extends Controller {
 		
 		$this->render ( 'index', array (
 				'dataProvider' => $dataProvider,
-				'project' => $this->_project
+				'project' => $this->_project 
 		) );
 	}
 	
@@ -181,13 +183,15 @@ class IssueController extends Controller {
 	 */
 	public function actionAdmin() {
 		
-		$model = new Issue ( 'search' );
+		$model = new IssueManage ( 'search' );
+		
 		$model->unsetAttributes (); // clear any default values
 		
 		if (isset ( $_GET ['Issue'] ))
 			$model->attributes = $_GET ['Issue'];
 		
-		$model->project_id = $this->_project->id;
+		$model->id = $this->_project->id;
+		// $model->project_id = $this->_project->id;
 		
 		$this->render ( 'admin', array (
 				'model' => $model 
