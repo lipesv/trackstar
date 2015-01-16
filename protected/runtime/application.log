@@ -1933,3 +1933,16 @@ Stack trace:
 REQUEST_URI=/trackstar/index.php?r=issue/admin&pid=1
 HTTP_REFERER=http://localhost:81/trackstar/index.php?r=issue/index&pid=1
 ---
+2015/01/16 15:30:12 [error] [php] include(Enum.php): failed to open stream: No such file or directory (C:\Users\fvieira\Desenvolvimento\xampp\htdocs\yii\framework\YiiBase.php:432)
+Stack trace:
+#0 unknown(0): spl_autoload_call()
+#1 C:\Users\fvieira\Desenvolvimento\xampp\htdocs\yii\framework\YiiBase.php(303): class_exists()
+#2 C:\Users\fvieira\Desenvolvimento\xampp\htdocs\yii\framework\YiiBase.php(196): import()
+#3 C:\Users\fvieira\Desenvolvimento\xampp\htdocs\yii\framework\base\CModule.php(393): createComponent()
+#4 C:\Users\fvieira\Desenvolvimento\xampp\htdocs\yii\framework\base\CModule.php(530): CWebApplication->getComponent()
+#5 C:\Users\fvieira\Desenvolvimento\xampp\htdocs\yii\framework\base\CApplication.php(167): CWebApplication->preloadComponents()
+#6 C:\Users\fvieira\Desenvolvimento\xampp\htdocs\yii\framework\YiiBase.php(125): CWebApplication->__construct()
+#7 C:\Users\fvieira\Desenvolvimento\xampp\htdocs\yii\framework\YiiBase.php(98): createApplication()
+#8 C:\Users\fvieira\Desenvolvimento\xampp\htdocs\trackstar\index.php(13): createWebApplication()
+REQUEST_URI=/trackstar/index.php?r=gii
+in C:\Users\fvieira\Desenvolvimento\xampp\htdocs\trackstar\index.php (13)

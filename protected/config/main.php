@@ -12,7 +12,7 @@ return array (
 		// preloading 'log' component
 		'preload' => array (
 				'log',
-				'enums' 
+// 				'enums' 
 		),
 		
 		// autoloading model and component classes
@@ -86,9 +86,9 @@ return array (
 						 */
 						 
 				),
-				'enums'=>array(
-						'class' => 'Enum'
-				) 
+// 				'enums'=>array(
+// 						'class' => 'Enum'
+// 				) 
 		),
 		
 		// application-level parameters that can be accessed

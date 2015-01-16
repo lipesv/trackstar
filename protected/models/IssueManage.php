@@ -5,12 +5,15 @@
  *
  * The followings are the available columns in table 'vw_issue_manage':
  * @property integer $id
- * @property string $name
+ * @property string $issue
  * @property string $description
+ * @property integer $project_id
  * @property string $project
- * @property string $type
- * @property string $status
+ * @property integer $type
+ * @property integer $status
+ * @property integer $requester_id
  * @property string $requester
+ * @property integer $owner_id
  * @property string $owner
  */
 class IssueManage extends CActiveRecord
@@ -31,15 +34,13 @@ class IssueManage extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('name, project, requester, owner', 'required'),
-			array('id', 'numerical', 'integerOnly'=>true),
-			array('name, project, requester, owner', 'length', 'max'=>255),
-			array('type', 'length', 'max'=>7),
-			array('status', 'length', 'max'=>15),
+			array('issue, project, requester, owner', 'required'),
+			array('id, project_id, type, status, requester_id, owner_id', 'numerical', 'integerOnly'=>true),
+			array('issue, project, requester, owner', 'length', 'max'=>255),
 			array('description', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, name, description, project, type, status, requester, owner', 'safe', 'on'=>'search'),
+			array('id, issue, description, project_id, project, type, status, requester_id, requester, owner_id, owner', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -61,12 +62,15 @@ class IssueManage extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'name' => 'Name',
+			'issue' => 'Issue',
 			'description' => 'Description',
+			'project_id' => 'Project',
 			'project' => 'Project',
 			'type' => 'Type',
 			'status' => 'Status',
+			'requester_id' => 'Requester',
 			'requester' => 'Requester',
+			'owner_id' => 'Owner',
 			'owner' => 'Owner',
 		);
 	}
@@ -90,12 +94,15 @@ class IssueManage extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
-		$criteria->compare('name',$this->name,true);
+		$criteria->compare('issue',$this->issue,true);
 		$criteria->compare('description',$this->description,true);
+		$criteria->compare('project_id',$this->project_id);
 		$criteria->compare('project',$this->project,true);
-		$criteria->compare('type',$this->type,true);
-		$criteria->compare('status',$this->status,true);
+		$criteria->compare('type',$this->type);
+		$criteria->compare('status',$this->status);
+		$criteria->compare('requester_id',$this->requester_id);
 		$criteria->compare('requester',$this->requester,true);
+		$criteria->compare('owner_id',$this->owner_id);
 		$criteria->compare('owner',$this->owner,true);
 
 		return new CActiveDataProvider($this, array(
