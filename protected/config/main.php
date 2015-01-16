@@ -11,16 +11,17 @@ return array (
 		
 		// preloading 'log' component
 		'preload' => array (
-				'log',
-				'enum'
-		),
+				'log' 
+		)
+		// 'enum'
+		,
 		
 		// autoloading model and component classes
 		'import' => array (
 				'application.models.*',
-				'application.components.*',
-				'application.extensions.*'  
+				'application.components.*' 
 		),
+		// 'application.extensions.*'
 		
 		'modules' => array (
 				// uncomment the following to enable the Gii tool
@@ -78,9 +79,12 @@ return array (
 										'levels' => 'error, warning' 
 								) 
 						) 
-				),
-				'enum'=>array('class' => 'ext.enum.Enum')
-		),
+				) 
+		)
+		// 'enum' => array (
+		// 'class' => 'ext.enum.Enum'
+		// )
+		,
 		// uncomment the following to show log messages on web pages
 		/*
 		 * array(
