@@ -17,9 +17,7 @@
 	<?php echo CHtml::encode($data->getTypeText()); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('project_id')); ?>:</b>
-	<?php echo CHtml::encode($data->project_id); ?>
-	<br />
+	
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('status_id')); ?>:</b>
 	<?php echo CHtml::encode($data->getStatusText()); ?>
@@ -28,6 +26,10 @@
 	<?php
 	
 	/*
+	 
+	 <b><?php echo CHtml::encode($data->getAttributeLabel('project_id')); ?>:</b>
+	<?php echo CHtml::encode($data->project_id); ?>
+	<br />
 	
 	<b><?php echo CHtml::encode($data->getAttributeLabel('status_id')); ?>:</b>
 	<?php echo CHtml::encode($data->status_id); ?>

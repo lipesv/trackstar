@@ -122,6 +122,7 @@ class IssueController extends Controller {
 	 *        	the ID of the model to be updated
 	 */
 	public function actionUpdate($id) {
+		
 		$model = $this->loadModel ( $id );
 		
 		// Uncomment the following line if AJAX validation is needed
