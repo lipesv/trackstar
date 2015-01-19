@@ -165,7 +165,9 @@ class ProjectController extends Controller {
 	 * Lists all models.
 	 */
 	public function actionIndex() {
+		
 		$dataProvider = new CActiveDataProvider ( 'Project' );
+		
 		$this->render ( 'index', array (
 				'dataProvider' => $dataProvider 
 		) );

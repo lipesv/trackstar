@@ -11,7 +11,7 @@ return array (
 		
 		// preloading 'log' component
 		'preload' => array (
-				'log' 
+				'log', 'enum'
 		),
 		
 		// autoloading model and component classes
@@ -77,6 +77,9 @@ return array (
 										'levels' => 'error, warning' 
 								) 
 						) 
+				),
+				'enum' => array (
+						'class' => 'ext.Enum' 
 				) 
 		),
 		// uncomment the following to show log messages on web pages
