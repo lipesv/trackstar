@@ -11,15 +11,18 @@ return array (
 		
 		// preloading 'log' component
 		'preload' => array (
-				'log', 'enum'
+				'log' 
 		),
+		// 'enum'
 		
 		// autoloading model and component classes
 		'import' => array (
 				'application.models.*',
-				'application.components.*' 
-		),
-		// 'application.extensions.*'
+				'application.components.*',
+				'application.extensions.*' 
+		)
+		// 'application.models.enums.*'
+		,
 		
 		'modules' => array (
 				// uncomment the following to enable the Gii tool
@@ -37,10 +40,12 @@ return array (
 		
 		// application components
 		'components' => array (
+				
 				'user' => array (
 						// enable cookie-based authentication
 						'allowAutoLogin' => true 
 				),
+				
 				// uncomment the following to enable URLs in path-format
 				/*
 				 * 'urlManager'=>array(
@@ -52,11 +57,13 @@ return array (
 				 * ),
 				 * ),
 				 */
+				
 				/*
 				 * 'db'=>array(
 				 * 'connectionString' => 'sqlite:'.dirname(__FILE__).'/../data/testdrive.db',
 				 * ),
 				 */
+				
 				// uncomment the following to use a MySQL database
 				'db' => array (
 						'connectionString' => 'mysql:host=localhost;dbname=trackstar',
@@ -77,11 +84,12 @@ return array (
 										'levels' => 'error, warning' 
 								) 
 						) 
-				),
-				'enum' => array (
-						'class' => 'ext.Enum' 
 				) 
 		),
+		// 'enum' => array (
+		// 'class' => 'ext.enums.Enum'
+		// )
+		
 		// uncomment the following to show log messages on web pages
 		/*
 		 * array(
