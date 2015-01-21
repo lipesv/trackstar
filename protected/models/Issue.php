@@ -71,12 +71,12 @@ class Issue extends CActiveRecord {
 				array (
 						'type_id',
 						'in',
-						'range' => IssueType::getAllowedTypeRange () 
+						'range' => array_keys ( IssueType::getValidValues () ) 
 				),
 				array (
 						'status_id',
 						'in',
-						'range' => IssueStatus::getAllowedStatusRange () 
+						'range' => array_keys ( IssueStatus::getValidValues () ) 
 				) 
 		);
 	}
@@ -199,7 +199,6 @@ class Issue extends CActiveRecord {
 	 * @return string the description of issue status
 	 */
 	public function getStatusText() {
-		
 		$statusOptions = $this->getStatusOptions ();
 		$status = IssueStatus::toString ( $statusOptions [$this->status_id] );
 		
@@ -211,7 +210,6 @@ class Issue extends CActiveRecord {
 	 * @return string the description of issue type
 	 */
 	public function getTypeText() {
-		
 		$typeOptions = $this->getTypeOptions ();
 		$type = IssueType::toString ( $typeOptions [$this->type_id] );
 		
