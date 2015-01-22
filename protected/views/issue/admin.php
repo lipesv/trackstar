@@ -71,9 +71,10 @@ $this->widget ( 'zii.widgets.grid.CGridView', array (
 				'description',
 				'project',
 				array (
-						'name' => 'type',
-						'value' => IssueType::getTypeText($model)
+						'name' => 'type_id',
+// 						'value' => "" 
 				),
+				// 'value' => CHtml::encode ( IssueType::getTypeText ( $model ) )
 				// array (
 				// 'name' => 'status',
 				// 'value' => CHtml::encode ( $this->loadModel ( $model->id )->getStatusText () )

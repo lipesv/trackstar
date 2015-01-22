@@ -1,5 +1,4 @@
 <?php
-
 class IssueController extends Controller {
 	
 	/**
@@ -82,11 +81,9 @@ class IssueController extends Controller {
 	 *        	the ID of the model to be displayed
 	 */
 	public function actionView($id) {
-		
 		$this->render ( 'view', array (
 				'model' => $this->loadModel ( $id ) 
 		) );
-		
 	}
 	
 	/**
@@ -122,7 +119,6 @@ class IssueController extends Controller {
 	 *        	the ID of the model to be updated
 	 */
 	public function actionUpdate($id) {
-		
 		$model = $this->loadModel ( $id );
 		
 		// Uncomment the following line if AJAX validation is needed
@@ -150,14 +146,14 @@ class IssueController extends Controller {
 	 *        	the ID of the model to be deleted
 	 */
 	public function actionDelete($id) {
-		
-		$project =$this->loadModel ( $id )->project; 
+		$project = $this->loadModel ( $id )->project;
 		$this->loadModel ( $id )->delete ();
 		
 		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
 		if (! isset ( $_GET ['ajax'] ))
 			$this->redirect ( isset ( $_POST ['returnUrl'] ) ? $_POST ['returnUrl'] : array (
-					'admin', 'pid'=>$project->id
+					'admin',
+					'pid' => $project->id 
 			) );
 	}
 	
@@ -185,7 +181,6 @@ class IssueController extends Controller {
 	 * Manages all models.
 	 */
 	public function actionAdmin() {
-		
 		$model = new IssueManage ( 'search' );
 		
 		$model->unsetAttributes (); // clear any default values
@@ -194,7 +189,6 @@ class IssueController extends Controller {
 			$model->attributes = $_GET ['Issue'];
 		
 		$model->project_id = $this->_project->id;
-		// $model->project_id = $this->_project->id;
 		
 		$this->render ( 'admin', array (
 				'model' => $model 
