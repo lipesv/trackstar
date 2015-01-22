@@ -72,16 +72,14 @@ $this->widget ( 'zii.widgets.grid.CGridView', array (
 				'project',
 				array (
 						'name' => 'type_id',
-// 						'value' => "" 
+						'value' => 'IssueType::getTypeText ( $data )' 
 				),
-				// 'value' => CHtml::encode ( IssueType::getTypeText ( $model ) )
-				// array (
-				// 'name' => 'status',
-				// 'value' => CHtml::encode ( $this->loadModel ( $model->id )->getStatusText () )
-				// ),
+				array (
+						'name' => 'status_id',
+						'value' => 'IssueStatus::getStatusText ( $data )' 
+				),
 				'owner',
 				'requester',
-				
 				array (
 						'class' => 'CButtonColumn',
 						'viewButtonUrl' => 'Yii::app()->createUrl("/issue/view", array("id" => $data->id, "pid"=>$data->project_id))',
@@ -90,16 +88,5 @@ $this->widget ( 'zii.widgets.grid.CGridView', array (
 				) 
 		) 
 ) );
-// 'buttons' => array (
-// 'view' => array (
-// "url" => "Yii::app()->createUrl('view', array('id'=>$model->id, 'pid'=>$model->project_id))"
-// ),
-// 'update' => array (
-// "url" => "Yii::app()->createUrl('update', array('id'=>$model->id, 'pid'=>$model->project_id))"
-// ),
-// 'delete' => array (
-// "url" => "Yii::app()->createUrl('delete', array('id'=>$model->id))"
-// )
-// )
 
 ?>

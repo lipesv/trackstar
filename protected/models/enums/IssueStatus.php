@@ -13,11 +13,13 @@ class IssueStatus extends Enum {
 	 * @return string issue status
 	 */
 	public static function getStatusText($data) {
-		
+
 		$statusOptions = self::getStatusOptions ();
-		$status = self::toString ( $statusOptions [$data->status_id] );
 		
-		return isset ( $status ) ? $status : "unknown status ({$data->status_id})";
+		if (isset ( $data->status_id )) {
+			$status = self::toString ( $statusOptions [$data->status_id] );
+			return $status;
+		}
 	}
 	
 	/**

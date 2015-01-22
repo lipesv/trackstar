@@ -54,26 +54,6 @@ $form = $this->beginWidget ( 'CActiveForm', array (
 		<?php echo $form->dropDownList($model, 'owner_id', $this->loadProject($model->project_id)->getUserOptions()); //echo $form->textField($model,'owner'); ?>
 	</div>
 
-	<div class="row">
-		<?php //echo $form->label($model,'create_time'); ?>
-		<?php //echo $form->textField($model,'create_time'); ?>
-	</div>
-
-	<div class="row">
-		<?php //echo $form->label($model,'create_user_id'); ?>
-		<?php //echo $form->textField($model,'create_user_id'); ?>
-	</div>
-
-	<div class="row">
-		<?php //echo $form->label($model,'update_time'); ?>
-		<?php //echo $form->textField($model,'update_time'); ?>
-	</div>
-
-	<div class="row">
-		<?php //echo $form->label($model,'update_user_id'); ?>
-		<?php //echo $form->textField($model,'update_user_id'); ?>
-	</div>
-
 	<div class="row buttons">
 		<?php echo CHtml::submitButton('Search'); ?>
 	</div>

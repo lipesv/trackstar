@@ -19,8 +19,6 @@ class IssueType extends Enum {
 		if (isset ( $data->type_id )) {
 			$type = self::toString ( $typeOptions [$data->type_id] );
 			return $type;
-		} else {
-			return null;
 		}
 	}
 	

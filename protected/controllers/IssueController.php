@@ -181,6 +181,7 @@ class IssueController extends Controller {
 	 * Manages all models.
 	 */
 	public function actionAdmin() {
+		
 		$model = new IssueManage ( 'search' );
 		
 		$model->unsetAttributes (); // clear any default values
@@ -190,9 +191,19 @@ class IssueController extends Controller {
 		
 		$model->project_id = $this->_project->id;
 		
+		// $dataProvider = new CActiveDataProvider ( 'IssueManage', array (
+		// 'criteria' => array (
+		// 'condition' => 'project_id=:projectId',
+		// 'params' => array (
+		// ':projectId' => $this->_project->id
+		// )
+		// )
+		// ) );
+		
 		$this->render ( 'admin', array (
 				'model' => $model 
-		) );
+		)
+		 );
 	}
 	
 	/**
