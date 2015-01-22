@@ -49,17 +49,16 @@ $form = $this->beginWidget ( 'CActiveForm', array (
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'owner_id'); ?>
-		<?php echo  $form->dropDownList($model, 'owner_id', $model->project->getUserOptions());?>
-		<?php echo $form->error($model,'owner_id'); ?>
-	</div>
-
-	<div class="row">
 		<?php echo $form->labelEx($model,'requester_id'); ?>
 		<?php echo $form->dropDownList($model, 'requester_id', $model->project->getUserOptions()); ?>
 		<?php echo $form->error($model,'requester_id'); ?>
 	</div>
-
+	
+	<div class="row">
+		<?php echo $form->labelEx($model,'owner_id'); ?>
+		<?php echo  $form->dropDownList($model, 'owner_id', $model->project->getUserOptions());?>
+		<?php echo $form->error($model,'owner_id'); ?>
+	</div>
 
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
