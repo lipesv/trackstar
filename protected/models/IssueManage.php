@@ -61,7 +61,7 @@ class IssueManage extends CActiveRecord {
 				// The following rule is used by search().
 				// @todo Please remove those attributes that should not be searched.
 				array (
-						'id, issue, description, project_id, project, type_id, status_id, requester_id, requester, owner_id, owner',
+						'issue, description, project_id, project, type_id, status_id, requester_id, requester, owner_id, owner',
 						'safe',
 						'on' => 'search' 
 				) 
@@ -129,12 +129,6 @@ class IssueManage extends CActiveRecord {
 		return new CActiveDataProvider ( $this, array (
 				'criteria' => $criteria 
 		) );
-		
-		// $arrayDataProvider = new CArrayDataProvider ( $this->model ()->findAll ( $criteria ) );
-		
-		// $results = $this->model ()->findAll ( $criteria );
-		
-		// return $arrayDataProvider;
 	}
 	
 	/**
