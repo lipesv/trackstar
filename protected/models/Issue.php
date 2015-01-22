@@ -1,6 +1,5 @@
 <?php
 
-// YiiBase::import ( "application.extensions.enums.*" );
 Yii::import ( "application.models.enums.*" );
 
 /**

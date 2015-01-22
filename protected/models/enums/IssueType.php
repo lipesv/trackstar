@@ -10,13 +10,18 @@ class IssueType extends Enum {
 	
 	/**
 	 *
-	 * @return string issue type 
+	 * @return string issue type
 	 */
 	public static function getTypeText($data) {
 		
-		$typeOptions = self::getTypeOptions();
-		$type = self::toString ( $typeOptions [$data->type_id] );		
-		return isset ( $type ) ? $type : "unknown type ({$data->type_id})";
+		$typeOptions = self::getTypeOptions ();
+		
+		if (isset ( $data->type_id )) {
+			$type = self::toString ( $typeOptions [$data->type_id] );
+			return $type;
+		} else {
+			return null;
+		}
 	}
 	
 	/**
@@ -25,6 +30,6 @@ class IssueType extends Enum {
 	 * @return array an array of available issue's types.
 	 */
 	private function getTypeOptions() {
-		return self::getValidValues();
+		return self::getValidValues ();
 	}
 }

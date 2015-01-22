@@ -35,13 +35,13 @@ $form = $this->beginWidget ( 'CActiveForm', array (
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'type'); ?>
-		<?php echo $form->dropDownList ( $model, 'type', IssueType::getValidValues () ); ?>
+		<?php echo $form->label($model,'type_id'); ?>
+		<?php echo $form->dropDownList ( $model, 'type_id', IssueType::getValidValues () ); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'status'); ?>
-		<?php echo $form->dropDownList($model, 'status', IssueStatus::getValidValues () ); ?>
+		<?php echo $form->label($model,'status_id'); ?>
+		<?php echo $form->dropDownList($model, 'status_id', IssueStatus::getValidValues () ); ?>
 	</div>
 
 	<div class="row">
