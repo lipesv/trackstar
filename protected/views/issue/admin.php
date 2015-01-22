@@ -1,9 +1,10 @@
 <?php
 /* @var $this IssueController */
-/* @var $model Issue */
+/* @var $model IssueManage */
 $this->breadcrumbs = array (
 		'Issues' => array (
-				'index' 
+				'index',
+				'pid' => $model->project_id 
 		),
 		'Manage' 
 );
@@ -13,14 +14,14 @@ $this->menu = array (
 				'label' => 'List Issue',
 				'url' => array (
 						'index',
-						'pid' => $model->id 
+						'pid' => $model->project_id 
 				) 
 		),
 		array (
 				'label' => 'Create Issue',
 				'url' => array (
 						'create',
-						'pid' => $model->id 
+						'pid' => $model->project_id 
 				) 
 		) 
 );
@@ -66,18 +67,38 @@ $this->widget ( 'zii.widgets.grid.CGridView', array (
 		'dataProvider' => $model->search (),
 		'filter' => $model,
 		'columns' => array (
-				'name',
+				'issue',
 				'description',
 				'project',
-				'type',
-				'status',
+				// array (
+				// 'name' => 'type',
+				// 'value' => $this->loadModel ( $model->id )->getStatusText ()
+				// ),
+				// array (
+				// 'name' => 'status',
+				// 'value' => CHtml::encode ( $this->loadModel ( $model->id )->getStatusText () )
+				// ),
 				'owner',
 				'requester',
 				
 				array (
-						'class' => 'CButtonColumn' 
+						'class' => 'CButtonColumn',
+						'viewButtonUrl' => 'Yii::app()->createUrl("/issue/view", array("id" => $data->id, "pid"=>$data->project_id))',
+						'deleteButtonUrl' => 'Yii::app()->createUrl("/issue/delete", array("id" => $data->id))',
+						'updateButtonUrl' => 'Yii::app()->createUrl("/issue/update", array("id" => $data->id, "pid"=>$data->project_id))' 
 				) 
 		) 
 ) );
+// 'buttons' => array (
+// 'view' => array (
+// "url" => "Yii::app()->createUrl('view', array('id'=>$model->id, 'pid'=>$model->project_id))"
+// ),
+// 'update' => array (
+// "url" => "Yii::app()->createUrl('update', array('id'=>$model->id, 'pid'=>$model->project_id))"
+// ),
+// 'delete' => array (
+// "url" => "Yii::app()->createUrl('delete', array('id'=>$model->id))"
+// )
+// )
 
 ?>

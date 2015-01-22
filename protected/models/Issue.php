@@ -2,7 +2,6 @@
 
 // YiiBase::import ( "application.extensions.enums.*" );
 Yii::import ( "application.models.enums.*" );
-Yii::import ( "application.extensions.enums.*" );
 
 /**
  * This is the model class for table "tbl_issue".
@@ -194,43 +193,5 @@ class Issue extends CActiveRecord {
 		return parent::model ( $className );
 	}
 	
-	/**
-	 *
-	 * @return string the description of issue status
-	 */
-	public function getStatusText() {
-		$statusOptions = $this->getStatusOptions ();
-		$status = IssueStatus::toString ( $statusOptions [$this->status_id] );
-		
-		return isset ( $status ) ? $status : "unknown status ({$this->status_id})";
-	}
 	
-	/**
-	 *
-	 * @return string the description of issue type
-	 */
-	public function getTypeText() {
-		$typeOptions = $this->getTypeOptions ();
-		$type = IssueType::toString ( $typeOptions [$this->type_id] );
-		
-		return isset ( $type ) ? $type : "unknown type ({$this->type_id})";
-	}
-	
-	/**
-	 * Retrieves a list of issue status
-	 *
-	 * @return array an array of available issue status.
-	 */
-	public static function getTypeOptions() {
-		return IssueType::getValidValues ();
-	}
-	
-	/**
-	 * Retrieves a list of issue types
-	 *
-	 * @return array an array of available issue types.
-	 */
-	public function getStatusOptions() {
-		return IssueStatus::getValidValues ();
-	}
 }

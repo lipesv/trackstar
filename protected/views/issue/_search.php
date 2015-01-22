@@ -1,6 +1,6 @@
 <?php
 /* @var $this IssueController */
-/* @var $model Issue */
+/* @var $model IssueManage */
 /* @var $form CActiveForm */
 ?>
 
@@ -20,8 +20,8 @@ $form = $this->beginWidget ( 'CActiveForm', array (
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'name'); ?>
-		<?php echo $form->textField($model,'name',array('size'=>60,'maxlength'=>255)); ?>
+		<?php echo $form->label($model,'issue'); ?>
+		<?php echo $form->textField($model,'issue',array('size'=>60,'maxlength'=>255)); ?>
 	</div>
 
 	<div class="row">
@@ -36,23 +36,22 @@ $form = $this->beginWidget ( 'CActiveForm', array (
 
 	<div class="row">
 		<?php echo $form->label($model,'type'); ?>
-		<?php echo $form->textField($model,'type'); ?>
+		<?php echo $form->dropDownList ( $model, 'type', IssueType::getValidValues () ); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->label($model,'status'); ?>
-		<?php echo $form->textField($model,'status'); ?>
+		<?php echo $form->dropDownList($model, 'status', IssueStatus::getValidValues () ); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'requester'); ?>
-		<?php echo $form->textField($model,'requester'); ?>
-		
+		<?php echo $form->label($model,'requester_id');  ?>
+		<?php echo $form->dropDownList($model, 'requester_id', $this->loadProject($model->project_id)->getUserOptions()); //echo $form->textField($model,'requester'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'owner'); ?>
-		<?php echo $form->textField($model,'owner'); ?>
+		<?php echo $form->label($model,'owner_id'); ?>
+		<?php echo $form->dropDownList($model, 'owner_id', $this->loadProject($model->project_id)->getUserOptions()); //echo $form->textField($model,'owner'); ?>
 	</div>
 
 	<div class="row">

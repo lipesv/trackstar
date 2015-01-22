@@ -150,6 +150,7 @@ class IssueController extends Controller {
 	 *        	the ID of the model to be deleted
 	 */
 	public function actionDelete($id) {
+		
 		$this->loadModel ( $id )->delete ();
 		
 		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
@@ -191,7 +192,7 @@ class IssueController extends Controller {
 		if (isset ( $_GET ['Issue'] ))
 			$model->attributes = $_GET ['Issue'];
 		
-		$model->id = $this->_project->id;
+		$model->project_id = $this->_project->id;
 		// $model->project_id = $this->_project->id;
 		
 		$this->render ( 'admin', array (

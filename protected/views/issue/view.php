@@ -3,7 +3,7 @@
 /* @var $model Issue */
 
 $this->breadcrumbs=array(
-	'Issues'=>array('index','pid'=>$model->id),
+	'Issues'=>array('index','pid'=>$model->project_id),
 	$model->name,
 );
 
@@ -29,11 +29,11 @@ $this->widget ( 'zii.widgets.CDetailView', array (
 				// 'project_id',
 				array (
 						'name' => 'type_id',
-						'value' => CHtml::encode ( $model->getTypeText () ) 
+						'value' => CHtml::encode ( IssueType::getTypeText($model) ) 
 				),
 				array (
 						'name' => 'status_id',
-						'value' => CHtml::encode ( $model->getStatusText () ) 
+						'value' => CHtml::encode ( IssueStatus::getStatusText($model) ) 
 				),
 				array (
 						'name' => 'owner_id',
