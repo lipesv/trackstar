@@ -36,22 +36,22 @@ $form = $this->beginWidget ( 'CActiveForm', array (
 
 	<div class="row">
 		<?php echo $form->label($model,'type_id'); ?>
-		<?php echo $form->dropDownList ( $model, 'type_id', IssueType::getValidValues () ); ?>
+		<?php echo $form->dropDownList ( $model, 'type_id', IssueType::getValidValues (), array('prompt'=>'') ); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->label($model,'status_id'); ?>
-		<?php echo $form->dropDownList($model, 'status_id', IssueStatus::getValidValues () ); ?>
+		<?php echo $form->dropDownList($model, 'status_id', IssueStatus::getValidValues (), array('prompt'=>'') ); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->label($model,'requester_id');  ?>
-		<?php echo $form->dropDownList($model, 'requester_id', $this->loadProject($model->project_id)->getUserOptions()); //echo $form->textField($model,'requester'); ?>
+		<?php echo $form->dropDownList($model, 'requester_id', $this->loadProject($model->project_id)->getUserOptions(), array('prompt'=>'')); //echo $form->textField($model,'requester'); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->label($model,'owner_id'); ?>
-		<?php echo $form->dropDownList($model, 'owner_id', $this->loadProject($model->project_id)->getUserOptions()); //echo $form->textField($model,'owner'); ?>
+		<?php echo $form->dropDownList($model, 'owner_id', $this->loadProject($model->project_id)->getUserOptions(), array('prompt'=>'')); //echo $form->textField($model,'owner'); ?>
 	</div>
 
 	<div class="row buttons">

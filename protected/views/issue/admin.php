@@ -72,14 +72,30 @@ $this->widget ( 'zii.widgets.grid.CGridView', array (
 				'project',
 				array (
 						'name' => 'type_id',
-						'value' => 'IssueType::getTypeText ( $data )' 
+						'value' => 'IssueType::getTypeText ( $data )',
+						'filter' => CHtml::dropDownList ( 'IssueManage[type_id]', $model->type_id, IssueType::getValidValues (), array (
+								'style' => 'width:110px;',
+								'prompt' => '' 
+						) ) 
 				),
 				array (
 						'name' => 'status_id',
-						'value' => 'IssueStatus::getStatusText ( $data )' 
+						'value' => 'IssueStatus::getStatusText ( $data )',
+						'filter' => CHtml::dropDownList ( 'IssueManage[status_id]', $model->status_id, IssueStatus::getValidValues (), array (
+								'style' => 'width:120px;',
+								'prompt' => '' 
+						) ) 
 				),
-				'owner',
-				'requester',
+				array (
+						'name' => 'requester_id',
+						'value' => '$data->requester',
+						'filter' => CHtml::listData ( $this->loadProject ( $model->project_id )->users, "id", "username" ) 
+				),
+				array (
+						'name' => 'owner_id',
+						'value' => '$data->owner',
+						'filter' => CHtml::listData ( $this->loadProject ( $model->project_id )->users, "id", "username" ) 
+				),
 				array (
 						'class' => 'CButtonColumn',
 						'viewButtonUrl' => 'Yii::app()->createUrl("/issue/view", array("id" => $data->id, "pid"=>$data->project_id))',

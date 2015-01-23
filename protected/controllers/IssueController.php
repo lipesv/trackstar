@@ -34,6 +34,7 @@ class IssueController extends Controller {
 	 * @return array access control rules
 	 */
 	public function accessRules() {
+		
 		return array (
 				array (
 						'allow', // allow all users to perform 'index' and 'view' actions
@@ -91,6 +92,7 @@ class IssueController extends Controller {
 	 * If creation is successful, the browser will be redirected to the 'view' page.
 	 */
 	public function actionCreate() {
+		
 		$model = new Issue ();
 		$model->project_id = $this->_project->id;
 		
@@ -119,6 +121,7 @@ class IssueController extends Controller {
 	 *        	the ID of the model to be updated
 	 */
 	public function actionUpdate($id) {
+		
 		$model = $this->loadModel ( $id );
 		
 		// Uncomment the following line if AJAX validation is needed
@@ -146,6 +149,7 @@ class IssueController extends Controller {
 	 *        	the ID of the model to be deleted
 	 */
 	public function actionDelete($id) {
+		
 		$project = $this->loadModel ( $id )->project;
 		$this->loadModel ( $id )->delete ();
 		
@@ -161,6 +165,7 @@ class IssueController extends Controller {
 	 * Lists all models.
 	 */
 	public function actionIndex() {
+		
 		$dataProvider = new CActiveDataProvider ( 'Issue', array (
 				'criteria' => array (
 						'condition' => 'project_id=:projectId',
@@ -180,12 +185,13 @@ class IssueController extends Controller {
 	 * Manages all models.
 	 */
 	public function actionAdmin() {
+		
 		$model = new IssueManage ( 'search' );
 		
 		$model->unsetAttributes (); // clear any default values
 		
-		if (isset ( $_GET ['Issue'] ))
-			$model->attributes = $_GET ['Issue'];
+		if (isset ( $_GET ['IssueManage'] ))
+			$model->attributes = $_GET ['IssueManage'];
 		
 		$model->project_id = $this->_project->id;
 		
@@ -204,7 +210,9 @@ class IssueController extends Controller {
 	 * @throws CHttpException
 	 */
 	public function loadModel($id) {
+		
 		$model = Issue::model ()->findByPk ( $id );
+		
 		if ($model === null)
 			throw new CHttpException ( 404, 'The requested page does not exist.' );
 		return $model;
