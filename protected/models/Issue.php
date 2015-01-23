@@ -1,5 +1,4 @@
 <?php
-
 Yii::import ( "application.models.enums.*" );
 
 /**
@@ -23,7 +22,7 @@ Yii::import ( "application.models.enums.*" );
  * @property Project $project
  * @property User $requester
  */
-class Issue extends CActiveRecord {
+class Issue extends TrackStarActiveRecord {
 	
 	/**
 	 *
@@ -46,7 +45,7 @@ class Issue extends CActiveRecord {
 						'required' 
 				),
 				array (
-						'project_id, type_id, status_id, owner_id, requester_id, create_user_id, update_user_id',
+						'project_id, type_id, status_id, owner_id, requester_id',
 						'numerical',
 						'integerOnly' => true 
 				),
@@ -191,6 +190,4 @@ class Issue extends CActiveRecord {
 	public static function model($className = __CLASS__) {
 		return parent::model ( $className );
 	}
-	
-	
 }
