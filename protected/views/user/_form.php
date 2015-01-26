@@ -38,7 +38,13 @@ $form = $this->beginWidget ( 'CActiveForm', array (
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'password'); ?>
-		<?php echo $form->passwordField($model,'password',array('size'=>60,'maxlength'=>255)); ?>
+		<?php
+		echo $form->passwordField ( $model, 'password', array (
+				'size' => 60,
+				'maxlength' => 255,
+				'value' => (! $model->isNewRecord && array_key_exists ( "password", $model->errors ) ? $model->password : ($model->isNewRecord ? $model->password : '')) 
+		) );
+		?>
 		<?php echo $form->error($model,'password'); ?>
 	</div>
 
