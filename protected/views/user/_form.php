@@ -35,24 +35,29 @@ $form = $this->beginWidget ( 'CActiveForm', array (
 		<?php echo $form->textField($model,'email',array('size'=>60,'maxlength'=>255)); ?>
 		<?php echo $form->error($model,'email'); ?>
 	</div>
+	
+<?php
+	if ($model->isNewRecord) {
+?>
+	
+		<div class="row">
+			<?php echo $form->labelEx($model,'password'); ?>
+			<?php echo $form->passwordField ( $model, 'password', array ('size' => 60,'maxlength' => 255) );?>
+			<?php echo $form->error($model,'password'); ?>
+		</div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'password'); ?>
-		<?php
-		echo $form->passwordField ( $model, 'password', array (
-				'size' => 60,
-				'maxlength' => 255,
-				'value' => (! $model->isNewRecord && array_key_exists ( "password", $model->errors ) ? $model->password : ($model->isNewRecord ? $model->password : '')) 
-		) );
-		?>
-		<?php echo $form->error($model,'password'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'password_repeat'); ?>
-		<?php echo $form->passwordField($model,'password_repeat',array('size'=>60,'maxlength'=>255)); ?>
-		<?php echo $form->error($model,'password_repeat'); ?>
-	</div>
+		<div class="row">
+			<?php echo $form->labelEx($model,'password_repeat'); ?>
+			<?php echo $form->passwordField($model,'password_repeat',array('size'=>60,'maxlength'=>255)); ?>
+			<?php echo $form->error($model,'password_repeat'); ?>
+		</div>
+<?php 
+	}else {
+		echo $form->hiddenField ( $model, 'password' );
+		echo $form->hiddenField ( $model, 'password_repeat', array (	'value' => $model->password ) );
+	}
+?>
+		
 
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>

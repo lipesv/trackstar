@@ -20,6 +20,7 @@
  * @property Project[] $tblProjects
  */
 class User extends TrackStarActiveRecord {
+	
 	public $password_repeat;
 	
 	/**
@@ -172,14 +173,25 @@ class User extends TrackStarActiveRecord {
 	protected function afterValidate() {
 		parent::afterValidate ();
 		
-		if (! $this->hasErrors ()) {
+		if (! $this->hasErrors () && $this->isNewRecord) {
 			$this->password = $this->hashPassword ( $this->password );
 		}
 	}
 	
 	/**
-	 * Generates the password hash.
+	 * Checks if the given password is correct.
 	 * 
+	 * @param
+	 *        	string the password to be validated
+	 * @return boolean whether the password is valid
+	 */
+	public function validatePassword($password) {
+		return $this->hashPassword ( $password ) === $this->password;
+	}
+	
+	/**
+	 * Generates the password hash.
+	 *
 	 * @param
 	 *        	string password
 	 * @return string hash
