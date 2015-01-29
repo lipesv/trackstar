@@ -20,9 +20,8 @@ return array (
 				'application.models.*',
 				'application.components.*',
 				'application.extensions.*' 
-		)
+		),
 		// 'application.models.enums.*'
-		,
 		
 		'modules' => array (
 				// uncomment the following to enable the Gii tool
@@ -84,11 +83,12 @@ return array (
 										'levels' => 'error, warning' 
 								) 
 						) 
+				),
+				'authManager' => array (
+						'class' => 'CDbAuthManager',
+						'connectionID' => 'db' 
 				) 
 		),
-		// 'enum' => array (
-		// 'class' => 'ext.enums.Enum'
-		// )
 		
 		// uncomment the following to show log messages on web pages
 		/*
