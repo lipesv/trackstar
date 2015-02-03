@@ -48,7 +48,6 @@ class ProjectController extends Controller {
 	 * If creation is successful, the browser will be redirected to the 'view' page.
 	 */
 	public function actionCreate() {
-		
 		$model = new Project ();
 		
 		// Uncomment the following line if AJAX validation is needed
@@ -116,7 +115,6 @@ class ProjectController extends Controller {
 	 * Lists all models.
 	 */
 	public function actionIndex() {
-		
 		$dataProvider = new CActiveDataProvider ( 'Project' );
 		
 		$this->render ( 'index', array (
@@ -165,5 +163,46 @@ class ProjectController extends Controller {
 			echo CActiveForm::validate ( $model );
 			Yii::app ()->end ();
 		}
+	}
+	
+	/**
+	 * Provides a form so that project administrators can
+	 * associate other users to the project
+	 */
+	public function actionAdduser($id) {
+		
+		$project = $this->loadModel ( $id );
+		
+		if (! Yii::app ()->user->checkAccess ( 'createUser', array (
+				'project' => $project 
+		) )) {
+			throw new CHttpException ( 403, 'You are not authorized to perform this action.' );
+		}
+		
+		$form = new ProjectUserForm ();
+		
+		// collect user input data
+		if (isset ( $_POST ['ProjectUserForm'] )) {
+			
+			$form->attributes = $_POST ['ProjectUserForm'];
+			$form->project = $project;
+			
+			// validate user input
+			if ($form->validate ()) {
+				if ($form->assign ()) {
+					
+					Yii::app ()->user->setFlash ( 'success', $form->username . "has been added to the project." );
+					
+					// reset the form for another user to be associated if desired
+					$form->unsetAttributes ();
+					$form->clearErrors ();
+				}
+			}
+		}
+		
+		$form->project = $project;
+		$this->render ( 'addUser', array (
+				'model' => $form 
+		) );
 	}
 }

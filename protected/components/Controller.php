@@ -43,7 +43,8 @@ class Controller extends CController {
 						),
 						'actions' => array (
 								'index',
-								'view' 
+								'view',
+								'addUser' 
 						),
 						'users' => array (
 								'@' 
