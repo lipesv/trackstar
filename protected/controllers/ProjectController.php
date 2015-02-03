@@ -191,7 +191,7 @@ class ProjectController extends Controller {
 			if ($form->validate ()) {
 				if ($form->assign ()) {
 					
-					Yii::app ()->user->setFlash ( 'success', $form->username . "has been added to the project." );
+					Yii::app ()->user->setFlash ( 'success', $form->username . " has been added to the project." );
 					
 					// reset the form for another user to be associated if desired
 					$form->unsetAttributes ();

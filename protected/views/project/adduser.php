@@ -33,9 +33,11 @@ $this->menu = array (
 
 	<?php $form=$this->beginWidget('CActiveForm'); ?>
 	
-		<p class="note">Fields with <span class="required">*</span> are required.</p>
-		
-		<div class="row">
+		<p class="note">
+		Fields with <span class="required">*</span> are required.
+	</p>
+
+	<div class="row">
 		
 			<?php echo $form->labelEx($model,'username'); ?>
 			
@@ -47,7 +49,7 @@ $this->menu = array (
 					'model' => $model,
 					'attribute' => 'username',
 					'options' => array (
-							'minLength' => '2' 
+							'minLength' => '3' 
 					),
 					'htmlOptions' => array (
 							'style' => 'height:20px;' 
@@ -58,14 +60,14 @@ $this->menu = array (
 			<?php echo $form->error($model,'username'); ?>
 		
 		</div>
-		
-		<div class="row">
+
+	<div class="row">
 			<?php echo $form->labelEx($model,'role'); ?>
-			<?php echo $form->dropDownList ( $model, 'role', Project::getUserRoleOptions () ); ?>
+			<?php echo $form->dropDownList ( $model, 'role', Project::getUserRoleOptions (), array('empty'=>'Select') ); ?>
 			<?php echo $form->error($model,'role'); ?>
 		</div>
-		
-		<div class="row buttons">
+
+	<div class="row buttons">
 			<?php echo CHtml::submitButton('Add User'); ?>
 		</div>
 
