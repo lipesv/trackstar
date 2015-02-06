@@ -200,4 +200,12 @@ class Issue extends TrackStarActiveRecord {
 	public static function model($className = __CLASS__) {
 		return parent::model ( $className );
 	}
+	
+	/**
+	 * Adds a comment to this issue
+	 */
+	public function addComment($comment) {
+		$comment->issue_id=$this->id;
+		return $comment->save();
+	}
 }

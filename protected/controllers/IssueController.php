@@ -34,8 +34,13 @@ class IssueController extends Controller {
 	 *        	the ID of the model to be displayed
 	 */
 	public function actionView($id) {
+		
+		$issue = $this->loadModel ( $id );
+		$comment = $this->createComment ( $issue );
+		
 		$this->render ( 'view', array (
-				'model' => $this->loadModel ( $id ) 
+				'model' => $issue,
+				'comment' => $comment 
 		) );
 	}
 	
@@ -72,7 +77,6 @@ class IssueController extends Controller {
 	 *        	the ID of the model to be updated
 	 */
 	public function actionUpdate($id) {
-		
 		$model = $this->loadModel ( $id );
 		
 		// Uncomment the following line if AJAX validation is needed
@@ -100,7 +104,6 @@ class IssueController extends Controller {
 	 *        	the ID of the model to be deleted
 	 */
 	public function actionDelete($id) {
-		
 		$project = $this->loadModel ( $id )->project;
 		$this->loadModel ( $id )->delete ();
 		
@@ -116,7 +119,6 @@ class IssueController extends Controller {
 	 * Lists all models.
 	 */
 	public function actionIndex() {
-		
 		$dataProvider = new CActiveDataProvider ( 'Issue', array (
 				'criteria' => array (
 						'condition' => 'project_id=:projectId',
@@ -136,7 +138,6 @@ class IssueController extends Controller {
 	 * Manages all models.
 	 */
 	public function actionAdmin() {
-		
 		$model = new IssueManage ( 'search' );
 		
 		$model->unsetAttributes (); // clear any default values
@@ -161,7 +162,6 @@ class IssueController extends Controller {
 	 * @throws CHttpException
 	 */
 	public function loadModel($id) {
-		
 		$model = Issue::model ()->findByPk ( $id );
 		
 		if ($model === null)
@@ -224,5 +224,25 @@ class IssueController extends Controller {
 		
 		// complete the running of other filters and execute the requested action
 		$filterChain->run ();
+	}
+	
+	/**
+	 * Creates a new comment on an issue
+	 */
+	protected function createComment($issue) {
+
+		$comment = new Comment ();
+		
+		if (isset ( $_POST ['Comment'] )) {
+			
+			$comment->attributes = $_POST ['Comment'];
+			
+			if ($issue->addComment ( $comment )) {
+				Yii::app ()->user->setFlash ( 'commentSubmitted', "Your comment has been added." );
+				$this->refresh ();
+			}
+		}
+		
+		return $comment;
 	}
 }
