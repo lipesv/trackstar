@@ -100,6 +100,16 @@ class Issue extends TrackStarActiveRecord {
 						self::BELONGS_TO,
 						'User',
 						'requester_id' 
+				),
+				'comments' => array (
+						self::HAS_MANY,
+						'Comment',
+						'issue_id' 
+				),
+				'commentCount' => array (
+						self::STAT,
+						'Comment',
+						'issue_id' 
 				) 
 		);
 	}
