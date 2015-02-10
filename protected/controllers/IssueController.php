@@ -35,7 +35,7 @@ class IssueController extends Controller {
 	 */
 	public function actionView($id) {
 		
-		$issue = $this->loadModel ( $id );
+		$issue = $this->loadModel ( $id, true );
 		$comment = $this->createComment ( $issue );
 		
 		$this->render ( 'view', array (
@@ -49,6 +49,7 @@ class IssueController extends Controller {
 	 * If creation is successful, the browser will be redirected to the 'view' page.
 	 */
 	public function actionCreate() {
+		
 		$model = new Issue ();
 		$model->project_id = $this->_project->id;
 		
@@ -56,7 +57,9 @@ class IssueController extends Controller {
 		// $this->performAjaxValidation($model);
 		
 		if (isset ( $_POST ['Issue'] )) {
+			
 			$model->attributes = $_POST ['Issue'];
+			
 			if ($model->save ())
 				$this->redirect ( array (
 						'view',
@@ -77,13 +80,16 @@ class IssueController extends Controller {
 	 *        	the ID of the model to be updated
 	 */
 	public function actionUpdate($id) {
+		
 		$model = $this->loadModel ( $id );
 		
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 		
 		if (isset ( $_POST ['Issue'] )) {
+			
 			$model->attributes = $_POST ['Issue'];
+			
 			if ($model->save ())
 				$this->redirect ( array (
 						'view',
@@ -104,6 +110,7 @@ class IssueController extends Controller {
 	 *        	the ID of the model to be deleted
 	 */
 	public function actionDelete($id) {
+		
 		$project = $this->loadModel ( $id )->project;
 		$this->loadModel ( $id )->delete ();
 		
@@ -119,6 +126,7 @@ class IssueController extends Controller {
 	 * Lists all models.
 	 */
 	public function actionIndex() {
+		
 		$dataProvider = new CActiveDataProvider ( 'Issue', array (
 				'criteria' => array (
 						'condition' => 'project_id=:projectId',
@@ -138,6 +146,7 @@ class IssueController extends Controller {
 	 * Manages all models.
 	 */
 	public function actionAdmin() {
+		
 		$model = new IssueManage ( 'search' );
 		
 		$model->unsetAttributes (); // clear any default values
@@ -161,11 +170,23 @@ class IssueController extends Controller {
 	 * @return Issue the loaded model
 	 * @throws CHttpException
 	 */
-	public function loadModel($id) {
-		$model = Issue::model ()->findByPk ( $id );
+	public function loadModel($id, $withComments = false) {
+		
+		if ($withComments) {
+			
+			$model = Issue::model ()->with ( array (
+					'comments' => array (
+							'with' => 'author' 
+					) 
+			) )->findByPk ( $id );
+			
+		}else {
+			$model = Issue::model ()->findByPk ( $id );
+		}
 		
 		if ($model === null)
 			throw new CHttpException ( 404, 'The requested page does not exist.' );
+		
 		return $model;
 	}
 	
@@ -230,7 +251,6 @@ class IssueController extends Controller {
 	 * Creates a new comment on an issue
 	 */
 	protected function createComment($issue) {
-
 		$comment = new Comment ();
 		
 		if (isset ( $_POST ['Comment'] )) {

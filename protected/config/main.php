@@ -13,15 +13,12 @@ return array (
 		'preload' => array (
 				'log' 
 		),
-		// 'enum'
 		
 		// autoloading model and component classes
 		'import' => array (
 				'application.models.*',
-				'application.components.*',
-				'application.extensions.*' 
+				'application.components.*' 
 		),
-		// 'application.models.enums.*'
 		
 		'modules' => array (
 				// uncomment the following to enable the Gii tool

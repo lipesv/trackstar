@@ -11,7 +11,7 @@
 	</div>
 
 	<div class="content">
-		<?php echo n12br(CHtml::encode($comment->content)); ?>
+		<?php echo nl2br(CHtml::encode($comment->content)); ?>
 	</div>
 
 	<hr>

@@ -53,6 +53,8 @@ $this->widget ( 'zii.widgets.CDetailView', array (
 
 <div id="comments">
 
+	<br />
+
 <?php if ($model->commentCount>=1) : ?>
 
 	<h3><?php echo $model->commentCount > 1 ? $model->commentCount . 'comments' : 'One comment'; ?></h3>
