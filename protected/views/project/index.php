@@ -22,4 +22,15 @@ $this->widget ( 'zii.widgets.CListView', array (
 ) );
 ?>
 
-<?php $this->widget('RecentCommentsWidget'); ?>
+<?php //$this->widget('RecentCommentsWidget'); ?>
+
+<?php
+
+$this->beginWidget ( 'zii.widgets.CPortlet', array (
+		'title' => 'Recent Comments' 
+) );
+
+$this->widget ( 'RecentCommentsWidget' );
+
+$this->endWidget ();
+?>

@@ -62,3 +62,18 @@ $this->widget ( 'zii.widgets.CListView', array (
 ) );
 
 ?>
+
+<br />
+
+<?php
+$this->beginWidget ( 'zii.widgets.CPortlet', array (
+		'title' => 'Recent Comments On This Project' 
+) );
+
+$this->widget ( 'RecentCommentsWidget', array (
+		'projectId' => $model->id 
+) );
+
+$this->endWidget ();
+
+?>
