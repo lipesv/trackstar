@@ -8409,3 +8409,20 @@ Stack trace:
 REQUEST_URI=/trackstar/index.php?r=issue/index
 HTTP_REFERER=http://localhost:81/trackstar/index.php?r=issue/create&pid=2
 ---
+2015/02/12 20:31:43 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\Users\fvieira\Desenvolvimento\xampp\htdocs\yii\framework\web\auth\CAccessControlFilter.php:182
+Stack trace:
+#0 C:\Users\fvieira\Desenvolvimento\xampp\htdocs\yii\framework\web\auth\CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 C:\Users\fvieira\Desenvolvimento\xampp\htdocs\yii\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\Users\fvieira\Desenvolvimento\xampp\htdocs\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 C:\Users\fvieira\Desenvolvimento\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\Users\fvieira\Desenvolvimento\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\Users\fvieira\Desenvolvimento\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\Users\fvieira\Desenvolvimento\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\Users\fvieira\Desenvolvimento\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('admin')
+#8 C:\Users\fvieira\Desenvolvimento\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('project/admin')
+#9 C:\Users\fvieira\Desenvolvimento\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#10 C:\Users\fvieira\Desenvolvimento\xampp\htdocs\trackstar\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/trackstar/index.php?r=project/admin
+HTTP_REFERER=http://localhost:81/trackstar/index.php?r=project/view&id=1
+---
