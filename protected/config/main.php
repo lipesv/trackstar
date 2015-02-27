@@ -21,11 +21,13 @@ return array (
 		),
 		
 		'modules' => array (
+				
 				// uncomment the following to enable the Gii tool
 				
 				'gii' => array (
 						'class' => 'system.gii.GiiModule',
 						'password' => false,
+						
 						// If removed, Gii defaults to localhost only. Edit carefully to taste.
 						'ipFilters' => array (
 								'127.0.0.1',
@@ -38,6 +40,7 @@ return array (
 		'components' => array (
 				
 				'user' => array (
+						
 						// enable cookie-based authentication
 						'allowAutoLogin' => true 
 				),
@@ -69,6 +72,7 @@ return array (
 						'charset' => 'utf8' 
 				),
 				'errorHandler' => array (
+						
 						// use 'site/error' action to display errors
 						'errorAction' => 'site/error' 
 				),
@@ -87,6 +91,9 @@ return array (
 						'itemTable' => 'tbl_auth_item',
 						'itemChildTable' => 'tbl_auth_item_child',
 						'assignmentTable' => 'tbl_auth_assignment' 
+				),
+				'urlManager' => array (
+						'urlFormat' => 'path' 
 				) 
 		),
 		
@@ -100,6 +107,7 @@ return array (
 		// application-level parameters that can be accessed
 		// using Yii::app()->params['paramName']
 		'params' => array (
+				
 				// this is used in contact page
 				'adminEmail' => 'webmaster@example.com' 
 		) 

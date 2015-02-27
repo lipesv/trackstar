@@ -1,4 +1,10 @@
 <?php
+
+Yii::import ( 'application.vendors.*' );
+
+require_once ('Zend/Feed.php');
+require_once ('Zend/Feed/Rss.php');
+
 class CommentController extends Controller {
 	/**
 	 *
@@ -30,7 +36,8 @@ class CommentController extends Controller {
 						'allow', // allow all users to perform 'index' and 'view' actions
 						'actions' => array (
 								'index',
-								'view' 
+								'view',
+								'feed' 
 						),
 						'users' => array (
 								'*' 
@@ -202,7 +209,6 @@ class CommentController extends Controller {
 	 * Uses Zend Feed to return an RSS formatted comments data feed
 	 */
 	public function actionFeed() {
-		
 		if (isset ( $_GET ['pid'] )) {
 			
 			$comments = Comment::model ()->with ( array (
@@ -216,7 +222,7 @@ class CommentController extends Controller {
 		} else
 			$comments = Comment::model ()->recent ( 20 )->findAll ();
 			
-		// convert from an array of comment AR class instances to an name=>value array for Zend
+			// convert from an array of comment AR class instances to an name=>value array for Zend
 		$entries = array ();
 		
 		foreach ( $comments as $comment ) {
