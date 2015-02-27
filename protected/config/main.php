@@ -93,7 +93,15 @@ return array (
 						'assignmentTable' => 'tbl_auth_assignment' 
 				),
 				'urlManager' => array (
-						'urlFormat' => 'path' 
+						'urlFormat' => 'path',
+						'rules' => array (
+								'<pid:\d+>/commentfeed' => array (
+										'comment/feed',
+										'urlSuffix' => '.xml',
+										'caseSensitive' => false 
+								) 
+						),
+						'showScriptName' => false 
 				) 
 		),
 		
