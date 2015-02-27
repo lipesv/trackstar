@@ -99,6 +99,11 @@ return array (
 										'comment/feed',
 										'urlSuffix' => '.xml',
 										'caseSensitive' => false 
+								),
+								'commentfeed' => array (
+										'comment/feed',
+										'urlSuffix' => '.xml',
+										'caseSensitive' => false 
 								) 
 						),
 						'showScriptName' => false 
