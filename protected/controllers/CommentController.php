@@ -209,6 +209,7 @@ class CommentController extends Controller {
 	 * Uses Zend Feed to return an RSS formatted comments data feed
 	 */
 	public function actionFeed() {
+		
 		if (isset ( $_GET ['pid'] )) {
 			
 			$comments = Comment::model ()->with ( array (
@@ -219,6 +220,7 @@ class CommentController extends Controller {
 							) 
 					) 
 			) )->recent ( 20 )->findAll ();
+					
 		} else
 			$comments = Comment::model ()->recent ( 20 )->findAll ();
 			
