@@ -8936,3 +8936,43 @@ Stack trace:
 REQUEST_URI=/trackstar/1/commentfeed.xml
 in C:\Users\fvieira\Desenvolvimento\xampp\htdocs\trackstar\protected\controllers\CommentController.php (217)
 in C:\Users\fvieira\Desenvolvimento\xampp\htdocs\trackstar\index.php (13)
+2015/03/04 15:47:37 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "pid/1/commentfeed".' in C:\Users\fvieira\Desenvolvimento\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\Users\fvieira\Desenvolvimento\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('pid/1/commentfe...')
+#1 C:\Users\fvieira\Desenvolvimento\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\Users\fvieira\Desenvolvimento\xampp\htdocs\trackstar\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/trackstar/pid/1/commentfeed/
+---
+2015/03/04 16:12:52 [error] [php] Use of undefined constant params - assumed 'params' (C:\Users\fvieira\Desenvolvimento\xampp\htdocs\trackstar\protected\controllers\CommentController.php:218)
+Stack trace:
+#0 C:\Users\fvieira\Desenvolvimento\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): CommentController->runAction()
+#1 C:\Users\fvieira\Desenvolvimento\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 C:\Users\fvieira\Desenvolvimento\xampp\htdocs\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#3 C:\Users\fvieira\Desenvolvimento\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CommentController->filterAccessControl()
+#4 C:\Users\fvieira\Desenvolvimento\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 C:\Users\fvieira\Desenvolvimento\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\Users\fvieira\Desenvolvimento\xampp\htdocs\yii\framework\web\CController.php(265): CommentController->runActionWithFilters()
+#7 C:\Users\fvieira\Desenvolvimento\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CommentController->run()
+#8 C:\Users\fvieira\Desenvolvimento\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 C:\Users\fvieira\Desenvolvimento\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#10 C:\Users\fvieira\Desenvolvimento\xampp\htdocs\trackstar\index.php(13): CWebApplication->run()
+REQUEST_URI=/trackstar/1/commentfeed/
+in C:\Users\fvieira\Desenvolvimento\xampp\htdocs\trackstar\protected\controllers\CommentController.php (218)
+in C:\Users\fvieira\Desenvolvimento\xampp\htdocs\trackstar\index.php (13)
+2015/03/04 16:14:38 [error] [php] Use of undefined constant params - assumed 'params' (C:\Users\fvieira\Desenvolvimento\xampp\htdocs\trackstar\protected\controllers\CommentController.php:218)
+Stack trace:
+#0 C:\Users\fvieira\Desenvolvimento\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): CommentController->runAction()
+#1 C:\Users\fvieira\Desenvolvimento\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 C:\Users\fvieira\Desenvolvimento\xampp\htdocs\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#3 C:\Users\fvieira\Desenvolvimento\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CommentController->filterAccessControl()
+#4 C:\Users\fvieira\Desenvolvimento\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 C:\Users\fvieira\Desenvolvimento\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\Users\fvieira\Desenvolvimento\xampp\htdocs\yii\framework\web\CController.php(265): CommentController->runActionWithFilters()
+#7 C:\Users\fvieira\Desenvolvimento\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CommentController->run()
+#8 C:\Users\fvieira\Desenvolvimento\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 C:\Users\fvieira\Desenvolvimento\xampp\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#10 C:\Users\fvieira\Desenvolvimento\xampp\htdocs\trackstar\index.php(13): CWebApplication->run()
+REQUEST_URI=/trackstar/1/commentfeed/
+in C:\Users\fvieira\Desenvolvimento\xampp\htdocs\trackstar\protected\controllers\CommentController.php (218)
+in C:\Users\fvieira\Desenvolvimento\xampp\htdocs\trackstar\index.php (13)

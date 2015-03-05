@@ -1,11 +1,11 @@
 <?php
-
 Yii::import ( 'application.vendors.*' );
 
 require_once ('Zend/Feed.php');
 require_once ('Zend/Feed/Rss.php');
 
 class CommentController extends Controller {
+	
 	/**
 	 *
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -215,7 +215,7 @@ class CommentController extends Controller {
 			$comments = Comment::model ()->with ( array (
 					'issue' => array (
 							'condition' => 'project_id=:projectId',
-							params => array (
+							'params' => array (
 									':projectId' => intval ( $_GET ['pid'] ) 
 							) 
 					) 
@@ -251,4 +251,5 @@ class CommentController extends Controller {
 		
 		$feed->send ();
 	}
+
 }
