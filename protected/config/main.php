@@ -95,18 +95,57 @@ return array (
 				'urlManager' => array (
 						'urlFormat' => 'path',
 						'rules' => array (
-								'commentfeed' => array (
-										'comment/feed',
-										'urlSuffix' => '.xml',
+								'project' => array (
+										'project/index',
+										'caseSensitive' => false 
+								),
+								'project/view/<id:\d+>' => array (
+										'project/view',
+										'caseSensitive' => false 
+								),
+								'project/update/<id:\d+>' => array (
+										'project/update',
+										'caseSensitive' => false 
+								),
+								'project/adduser/<id:\d+>' => array (
+										'project/adduser',
+										'caseSensitive' => false 
+								),
+								'issue/<pid:\d+>' => array (
+										'issue/index',
+										'caseSensitive' => false 
+								),
+								'issue/view/<id:\d+>' => array (
+										'issue/view',
+										'caseSensitive' => false 
+								),
+								'issue/update/<id:\d+>' => array (
+										'issue/update',
+										'caseSensitive' => false 
+								),
+								'user' => array (
+										'user/index',
+										'caseSensitive' => false 
+								),
+								'user/view/<id:\d+>' => array (
+										'user/view',
+										'caseSensitive' => false 
+								),
+								'user/update/<id:\d+>' => array (
+										'user/update',
 										'caseSensitive' => false 
 								),
 								'<pid:\d+>/commentfeed' => array (
 										'comment/feed',
 										'urlSuffix' => '.xml',
 										'caseSensitive' => false 
+								),
+								'commentfeed' => array (
+										'comment/feed',
+										'urlSuffix' => '.xml',
+										'caseSensitive' => false 
 								) 
-						)
-						,
+						),
 						'showScriptName' => false 
 				) 
 		),
