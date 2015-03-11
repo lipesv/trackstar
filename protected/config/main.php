@@ -10,6 +10,7 @@ return array (
 		'name' => 'TrackStar',
 		'id' => 'TrackStar',
 		'homeUrl' => '/trackstar/project',
+		'theme' => 'newtheme',
 		
 		// preloading 'log' component
 		'preload' => array (
