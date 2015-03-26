@@ -11,6 +11,7 @@ return array (
 		'id' => 'TrackStar',
 		'homeUrl' => '/trackstar/project',
 		'theme' => 'newtheme',
+		'language' => 'rev',
 		
 		// preloading 'log' component
 		'preload' => array (
